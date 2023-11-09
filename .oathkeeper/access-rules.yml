@@ -1,0 +1,14 @@
+- id: "rule1"
+  upstream:
+    preserve_host: true
+    url: "https://httpbin.org/anything"
+  match:
+    url: "http://dev.pp:4455/header"
+    methods:
+      - GET
+  authenticators:
+    - handler: anonymous
+  authorizer:
+    handler: allow
+  mutators:
+    - handler: noop
